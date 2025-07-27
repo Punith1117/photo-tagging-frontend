@@ -7,7 +7,7 @@ vi.mock('../apiQueries', () => ({
     getLeaderboard: vi.fn()
 }))
 vi.mock('../components/Loading', () => ({
-    default: () => <div role="status">loading</div>
+    default: () => <div role="status">loading...</div>
 }))
 
 import { getLeaderboard } from '../apiQueries'
