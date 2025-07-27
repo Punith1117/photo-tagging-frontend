@@ -1,5 +1,5 @@
-import { cleanup, render, screen } from "@testing-library/react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { render, screen, within } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import Leaderboard from "../components/Leaderboard";
 import '@testing-library/jest-dom';
 
@@ -11,26 +11,30 @@ vi.mock('../components/Loading', () => ({
 }))
 
 import { getLeaderboard } from '../apiQueries'
-import { Loading } from '../components/Loading'
 
 describe('Leaderboard component', () => {
-    beforeEach(() => {
-        cleanup()
+
+    it('should exist', async () => {
         getLeaderboard.mockResolvedValue([
             {playerName: 'Varun', timeTaken: 20},
             {playerName: 'Mahesh', timeTaken: 25},
             {playerName: 'Loser', timeTaken: 26},
         ])
         render(<Leaderboard />)
-    })
-
-    it('should exist', async () => {
         expect(await screen.findByText('Leaderboard')).toBeInTheDocument()
     })
     it('should render loading component before players are fetched from api', async () => {
+        getLeaderboard.mockResolvedValue(new Promise(() => {}))
+        render(<Leaderboard />)
         expect(await screen.findByRole('status')).toHaveTextContent(/loading.../i) //findByRole is asynchronous by default
     })
     it('should display all players in order with time taken', async () => {
+        getLeaderboard.mockResolvedValue([
+            {playerName: 'Varun', timeTaken: 20},
+            {playerName: 'Mahesh', timeTaken: 25},
+            {playerName: 'Loser', timeTaken: 26},
+        ])
+        render(<Leaderboard />)
         const rows = await screen.findAllByRole('row');
 
         const dataRows = rows.slice(1); // Skip the header row
