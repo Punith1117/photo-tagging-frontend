@@ -5,3 +5,5 @@ const getLeaderboard = async () => {
         .then(res => res.json())
     return players
 }
+
+export { getLeaderboard }
