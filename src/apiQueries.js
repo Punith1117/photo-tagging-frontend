@@ -5,5 +5,13 @@ const getLeaderboard = async () => {
         .then(res => res.json())
     return players
 }
+const getTimeTakenByPlayer = async () => {
+    let { timeTaken } = await fetch(URL + '/me/time-taken')
+        .then(res => res.json())
+    return timeTaken
+}
 
-export { getLeaderboard }
+export {
+    getLeaderboard,
+    getTimeTakenByPlayer
+ }
