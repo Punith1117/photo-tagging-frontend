@@ -4,9 +4,11 @@ import Loading from "./Loading"
 const StartGame = ({userCreated}) => {
     return (
         <div>
-            (userCreated == true) ?
-                <Link to='/game'>Start</Link> :
-                    <span>{<Loading />}</span>
+            { 
+                (userCreated == true) ?
+                    <Link to='/game'>Start</Link> :
+                        <span>{<Loading />}</span>
+            }
         </div>
     )
 }
