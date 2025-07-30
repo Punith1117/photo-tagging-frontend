@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from "vitest";
 import PlayerName from "../components/PlayerName";
 import '@testing-library/jest-dom';
 
-vi.mock('../utilities', () => ({
+vi.mock('../utilities.mock', () => ({
     getPlayerNameFromToken: vi.fn()
 }))
 
@@ -11,7 +11,7 @@ vi.mock('../components/Loading', () => ({
     default: () => <p>loading...</p>
 }))
 
-import { getPlayerNameFromToken } from "../utilities";
+import { getPlayerNameFromToken } from "../utilities.mock";
 
 describe('PlayerName component', () => {
     it('exists', () => {

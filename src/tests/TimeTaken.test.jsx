@@ -3,10 +3,10 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import TimeTaken from "../components/TimeTaken";
 import '@testing-library/jest-dom';
 
-vi.mock('../apiQueries', () => ({
+vi.mock('../apiQueries.mock', () => ({
     getTimeTakenByPlayer: vi.fn()
 }))
-import { getTimeTakenByPlayer } from "../apiQueries";
+import { getTimeTakenByPlayer } from "../apiQueries.mock";
 
 vi.mock('../components/Loading', () => ({
     default: () => <p>loading...</p>

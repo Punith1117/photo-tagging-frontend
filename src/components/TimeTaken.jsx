@@ -1,6 +1,6 @@
 import { use, useEffect, useState } from "react"
 import Loading from "./Loading"
-import { getTimeTakenByPlayer } from "../apiQueries"
+import { getTimeTakenByPlayer } from "../apiQueries.mock"
 
 const TimeTaken = ({ userCreated }) => {
     const [isLoading, setIsLoading] = useState(true)

@@ -31,16 +31,16 @@ vi.mock('../components/StartGame', () => ({
     } 
 }))
 
-vi.mock('../apiQueries', () => ({
+vi.mock('../apiQueries.mock', () => ({
     getNewPlayerToken: vi.fn()
 }))
-vi.mock('../utilities', () => ({
+vi.mock('../utilities.mock', () => ({
     savePlayerTokenToStorage: vi.fn(),
     getPlayerTokenFromStorage: vi.fn()
 }))
 
-import { getNewPlayerToken } from '../apiQueries'
-import { savePlayerTokenToStorage, getPlayerTokenFromStorage } from '../utilities'
+import { getNewPlayerToken } from '../apiQueries.mock'
+import { savePlayerTokenToStorage, getPlayerTokenFromStorage } from '../utilities.mock'
 
 describe('Index component', () => {
     beforeEach(() => {

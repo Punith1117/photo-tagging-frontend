@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Loading from "./Loading"
-import { getLeaderboard } from "../apiQueries"
+import { getLeaderboard } from "../apiQueries.mock"
 
 const Leaderboard = () => {
     const [players, setPlayers] = useState(null)

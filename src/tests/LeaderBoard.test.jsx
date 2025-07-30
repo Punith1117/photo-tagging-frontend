@@ -3,14 +3,14 @@ import { describe, expect, it, vi } from "vitest";
 import Leaderboard from "../components/Leaderboard";
 import '@testing-library/jest-dom';
 
-vi.mock('../apiQueries', () => ({
+vi.mock('../apiQueries.mock', () => ({
     getLeaderboard: vi.fn()
 }))
 vi.mock('../components/Loading', () => ({
     default: () => <div role="status">loading...</div>
 }))
 
-import { getLeaderboard } from '../apiQueries'
+import { getLeaderboard } from '../apiQueries.mock'
 
 describe('Leaderboard component', () => {
 
