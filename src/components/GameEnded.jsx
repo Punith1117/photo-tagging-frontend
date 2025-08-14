@@ -8,10 +8,11 @@ const StyledGameEnded = styled.div`
     background-color: black;
 `
 
-const GameEnded = ({refresh, setRefresh}) => {
+const GameEnded = ({refresh, setRefresh, gameEndedMessage}) => {
     return (
         <StyledGameEnded>
             <h2>Game Ended</h2>
+            <p>{gameEndedMessage}</p>
             <button onClick={() => setRefresh(refresh+1)}>Play again</button>
             <Link to={'/'}>Home</Link>
         </StyledGameEnded>
