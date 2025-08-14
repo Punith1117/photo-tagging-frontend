@@ -4,6 +4,7 @@ import GameBoard from "./GameBoard"
 import styled from "styled-components"
 import Timer from "./Timer"
 import { createNewGame } from "../apiQueries.mock"
+import ObjectsToFind from "./ObjectsToFind"
 
 const StyledGame = styled.div`
     position: relative;
@@ -57,6 +58,7 @@ const Game = () => {
     return (
         <StyledGame>
             <Notifications messages={messages} />
+            <ObjectsToFind objects={initialObjects} />
             <Timer key={refresh} gameStarted={gameStarted} gameEndedMessage={gameEndedMessage} setGameEndedMessage={setGameEndedMessage} notify={notify} />
             <GameBoard
                 initialObjects={initialObjects}
