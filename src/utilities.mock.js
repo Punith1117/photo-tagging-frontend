@@ -16,8 +16,13 @@ const getTimeLimitFromToken = () => {
     return 10
 }
 
+const allObjectsFound = (objects) => {
+    return objects.every(object => object.found === true)
+}
+
 export {
     savePlayerTokenToStorage,
     getPlayerTokenFromStorage,
-    getTimeLimitFromToken
+    getTimeLimitFromToken,
+    allObjectsFound
 }
