@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Loading from "./Loading"
 import { getTimeLimitFromToken } from "../utilities.mock"
 
-const Timer = ({gameStarted, gameEnded, setGameEnded, notify}) => {
+const Timer = ({gameStarted, gameEndedMessage, setGameEndedMessage, notify}) => {
     const [timeLimit, setTimeLimit] = useState(null)
 
     useEffect(() => {
@@ -14,9 +14,9 @@ const Timer = ({gameStarted, gameEnded, setGameEnded, notify}) => {
     useEffect(() => {
         if (typeof timeLimit === 'number') {
             if (timeLimit == 0) {
-                setGameEnded(true)
+                setGameEndedMessage('Time limit exceeded')
                 notify('Time limit exceeded')
-            } else if (gameEnded != true){
+            } else if (gameEndedMessage == null){
                 setTimeout(() => {
                     setTimeLimit(timeLimit - 1)
                 }, 1000)
