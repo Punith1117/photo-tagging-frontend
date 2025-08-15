@@ -5,6 +5,8 @@ import styled from "styled-components"
 import Timer from "./Timer"
 import { createNewGame } from "../apiQueries.mock"
 import ObjectsToFind from "./ObjectsToFind"
+import { getPlayerTokenFromStorage } from "../utilities.mock"
+import { Navigate } from "react-router-dom"
 
 const StyledGame = styled.div`
     position: relative;
@@ -16,6 +18,9 @@ const StyledGame = styled.div`
 `
 
 const Game = () => {
+    if (getPlayerTokenFromStorage() === null)
+        return <Navigate to='/' />
+
     const [ messages, setMessages ] = useState([])
     const [ gameStarted, setGameStarted ] = useState(false)
     const [ gameEndedMessage, setGameEndedMessage ] = useState(null)
