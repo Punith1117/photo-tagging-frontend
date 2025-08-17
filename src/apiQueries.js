@@ -1,4 +1,4 @@
-import { getPlayerTokenFromStorage } from "./utilities"
+import { getGameTokenFromStorage, getPlayerTokenFromStorage } from "./utilities"
 
 const DOMAIN = 'http://localhost:3000'
 
@@ -60,9 +60,35 @@ const createNewGame = async () => {
     }
 }
 
+const verifyGuess = async (coordinates, objectId) => {
+    try {
+        const res = await fetch(`${DOMAIN}/game/verify-guess`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${getGameTokenFromStorage()}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                coordinates,
+                objectId
+            })
+        })
+        const data = await res.json()
+        let {updatedObjects, ...rest} = data
+        updatedObjects = updatedObjects.map(({objectId, ...restData}) => ({
+            id: objectId,
+            ...restData
+        }))
+        return {updatedObjects, ...rest}
+    } catch (e) {
+        console.error(e.message)
+    }
+}
+
 export {
     getLeaderboard,
     getNewPlayerToken,
     getTimeTakenByPlayer,
-    createNewGame
+    createNewGame,
+    verifyGuess
 }
