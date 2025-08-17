@@ -15,6 +15,10 @@ const getPlayerTokenFromStorage = () => {
     return localStorage.getItem('player-token')
 }
 
+const getGameTokenFromStorage = () => {
+    return localStorage.getItem('game-token')
+}
+
 const saveGameTokenToStorage = (token) => {
     localStorage.setItem('game-token', token)
 }
@@ -36,5 +40,6 @@ export {
     getPlayerTokenFromStorage,
     saveGameTokenToStorage,
     getTimeLimitFromToken,
-    allObjectsFound
+    allObjectsFound,
+    getGameTokenFromStorage
 }
