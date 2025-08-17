@@ -34,7 +34,7 @@ const ObjectsToFind = ({ objects }) => {
                         <Loading />
                     :
                     objects.map(object => (
-                        <div className="object-wrapper">
+                        <div className="object-wrapper" key={object.id}>
                             <img src={`/objects/${object.id}.jpeg`} alt={`object ${object.id}`} />
                         </div>
                     ))
