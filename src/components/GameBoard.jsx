@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import styled from "styled-components"
 import Popup from "./Popup"
-import { verifyGuess } from "../apiQueries.mock"
+import { verifyGuess } from "../apiQueries"
 import GameEnded from "./GameEnded"
-import { allObjectsFound } from "../utilities.mock"
+import { allObjectsFound } from "../utilities"
 
 const StyledGameBoard = styled.div`
     position: relative;
