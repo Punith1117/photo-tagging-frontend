@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import GameTitleWithAuthor from "./GameTitleWithAuthor"
-import { getNewPlayerToken } from "../apiQueries.mock"
-import { savePlayerTokenToStorage, getPlayerTokenFromStorage } from "../utilities.mock"
+import { getNewPlayerToken } from "../apiQueries"
+import { savePlayerTokenToStorage, getPlayerTokenFromStorage } from "../utilities"
 import PlayerName from "./PlayerName"
 import GameSummary from './GameSummary'
 import TimeTaken from './TimeTaken'

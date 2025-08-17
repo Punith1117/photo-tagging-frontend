@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Loading from "./Loading"
-import { getPlayerNameFromToken } from "../utilities.mock"
+import { getPlayerNameFromToken } from "../utilities"
 
 const PlayerName = ({ userCreated }) => {
     const [playerName, setPlayerName] = useState(null)
