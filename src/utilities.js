@@ -15,8 +15,26 @@ const getPlayerTokenFromStorage = () => {
     return localStorage.getItem('player-token')
 }
 
+const saveGameTokenToStorage = (token) => {
+    localStorage.setItem('game-token', token)
+}
+
+const getTimeLimitFromToken = () => {
+    const jwt = localStorage.getItem('game-token')
+    if (!jwt) return null
+    const decoded = jwtDecode(jwt)
+    return decoded.exp - decoded.iat
+}
+
+const allObjectsFound = (objects) => {
+    return objects.every(object => object.found === true)
+}
+
 export {
     getPlayerNameFromToken,
     savePlayerTokenToStorage,
-    getPlayerTokenFromStorage
+    getPlayerTokenFromStorage,
+    saveGameTokenToStorage,
+    getTimeLimitFromToken,
+    allObjectsFound
 }
