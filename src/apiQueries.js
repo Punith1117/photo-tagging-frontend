@@ -1,3 +1,5 @@
+import { getPlayerTokenFromStorage } from "./utilities"
+
 const DOMAIN = 'http://localhost:3000'
 
 const getLeaderboard = async () => {
@@ -22,7 +24,23 @@ const getNewPlayerToken = async () => {
     }
 }
 
+const getTimeTakenByPlayer = async () => {
+    try {
+        const res = await fetch(`${DOMAIN}/player/time-taken`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${getPlayerTokenFromStorage()}`,
+            }
+        })
+        const data = await res.json()
+        return data.timeTaken
+    } catch (e) {
+        console.error(e.message)
+    }
+}
+
 export {
     getLeaderboard,
-    getNewPlayerToken
+    getNewPlayerToken,
+    getTimeTakenByPlayer
 }
