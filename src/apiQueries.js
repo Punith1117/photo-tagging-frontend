@@ -39,8 +39,31 @@ const getTimeTakenByPlayer = async () => {
     }
 }
 
+const createNewGame = async () => {
+    try {
+        const res = await fetch(`${DOMAIN}/game/new`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${getPlayerTokenFromStorage()}`
+            }
+        })
+        const data = await res.json()
+        let {initialObjects, ...rest} = data
+        let objects = initialObjects.map(({objectId, ...restData}) => ({
+            id: objectId,
+            ...restData
+        }))
+
+        console.log(objects)
+        return {objects, ...rest}
+    } catch (e) {
+        console.error(e.message)
+    }
+}
+
 export {
     getLeaderboard,
     getNewPlayerToken,
-    getTimeTakenByPlayer
+    getTimeTakenByPlayer,
+    createNewGame
 }
