@@ -10,6 +10,19 @@ const getLeaderboard = async () => {
     }
 }
 
+const getNewPlayerToken = async () => {
+    try {
+        const res = await fetch(`${DOMAIN}/player/new`, {
+            method: 'POST'
+        })
+        const data = await res.json()
+        return data.token
+    } catch (e) {
+        console.log(e.message)
+    }
+}
+
 export {
-    getLeaderboard
+    getLeaderboard,
+    getNewPlayerToken
 }
