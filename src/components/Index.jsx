@@ -15,6 +15,7 @@ const Index = () => {
         const createUser = async () => {
             const token = await getNewPlayerToken()
             savePlayerTokenToStorage(token)
+            setUserCreated(true)
         }
         if (getPlayerTokenFromStorage() == null)
             createUser()
