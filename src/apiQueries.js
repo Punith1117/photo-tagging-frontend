@@ -54,7 +54,6 @@ const createNewGame = async () => {
             ...restData
         }))
 
-        console.log(objects)
         return {objects, ...rest}
     } catch (e) {
         console.error(e.message)

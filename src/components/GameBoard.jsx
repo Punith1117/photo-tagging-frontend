@@ -51,7 +51,6 @@ const GameBoard = ({initialObjects, notify, gameEndedMessage, setGameEndedMessag
             let result = await verifyGuess(coordinates, foundObjectId)
             if (result.found) {
                 notify('Congrats! You found the object')
-                console.log(result)
                 if (allObjectsFound(result.updatedObjects)) {
                     setGameEndedMessage(`Congratulations! You have completed the game in ${result.timeTaken} seconds.`)
                 }
