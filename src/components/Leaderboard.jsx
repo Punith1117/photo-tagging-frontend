@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Loading from "./Loading"
-import { getLeaderboard } from "../apiQueries.mock"
+import { getLeaderboard } from "../apiQueries"
 
 const Leaderboard = () => {
     const [players, setPlayers] = useState(null)
@@ -39,7 +39,7 @@ const Leaderboard = () => {
                         players.map((player, index) => (
                             <tr key={index + 1}>
                                 <td>{index + 1}</td>
-                                <td>{player.playerName}</td>
+                                <td>{player.name}</td>
                                 <td>{player.timeTaken}</td>
                             </tr>
                         ))
