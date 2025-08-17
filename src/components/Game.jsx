@@ -3,9 +3,9 @@ import Notifications from "./Notifications"
 import GameBoard from "./GameBoard"
 import styled from "styled-components"
 import Timer from "./Timer"
-import { createNewGame } from "../apiQueries.mock"
+import { createNewGame } from "../apiQueries"
 import ObjectsToFind from "./ObjectsToFind"
-import { getPlayerTokenFromStorage } from "../utilities.mock"
+import { getPlayerTokenFromStorage, saveGameTokenToStorage } from "../utilities"
 import { Navigate } from "react-router-dom"
 
 const StyledGame = styled.div`
@@ -29,7 +29,7 @@ const Game = () => {
 
     const initialSetup = async () => {
         const obj = await createNewGame()
-        console.log(obj.token)
+        saveGameTokenToStorage(obj.token)
         setGameStarted(true)
         setInitialObjects(obj.objects)
     }

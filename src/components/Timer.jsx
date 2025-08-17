@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Loading from "./Loading"
-import { getTimeLimitFromToken } from "../utilities.mock"
+import { getTimeLimitFromToken } from "../utilities"
 
 const Timer = ({gameStarted, gameEndedMessage, setGameEndedMessage, notify}) => {
     const [timeLimit, setTimeLimit] = useState(null)
