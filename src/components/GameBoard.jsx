@@ -52,6 +52,7 @@ const GameBoard = ({initialObjects, notify, gameEndedMessage, setGameEndedMessag
             if (result.message) {
                 setGameEndedMessage('Time limit exceeded')
                 notify('Time limit exceeded')
+                setFoundObjectId(null)
                 return
             }
             if (result.found) {
