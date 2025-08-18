@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 const StyledGameEnded = styled.div`
@@ -14,7 +13,6 @@ const GameEnded = ({refresh, setRefresh, gameEndedMessage}) => {
             <h2>Game Ended</h2>
             <p>{gameEndedMessage}</p>
             <button onClick={() => setRefresh(refresh+1)}>Play again</button>
-            <Link to={'/'}>Home</Link>
         </StyledGameEnded>
     )
 }
