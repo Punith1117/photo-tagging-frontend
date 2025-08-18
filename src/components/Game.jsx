@@ -6,7 +6,7 @@ import Timer from "./Timer"
 import { createNewGame } from "../apiQueries"
 import ObjectsToFind from "./ObjectsToFind"
 import { getPlayerTokenFromStorage, saveGameTokenToStorage } from "../utilities"
-import { Navigate } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 
 const StyledGame = styled.div`
     position: relative;
@@ -62,6 +62,7 @@ const Game = () => {
 
     return (
         <StyledGame>
+            <Link to={'/'}>Home</Link>
             <Notifications messages={messages} />
             <ObjectsToFind objects={initialObjects} />
             <Timer key={refresh} gameStarted={gameStarted} gameEndedMessage={gameEndedMessage} setGameEndedMessage={setGameEndedMessage} notify={notify} />
