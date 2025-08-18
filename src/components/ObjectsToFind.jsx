@@ -6,6 +6,10 @@ const StyledObjectsToFind = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #ffdd80;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: darkblue;
 
     .objects {
         display: flex;
@@ -13,12 +17,14 @@ const StyledObjectsToFind = styled.div`
     }
 
     .object-wrapper {
-        width: 5rem;
+        width: 7rem;
         height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         img {
-            width: 100%;
-            height: 100%;
+            max-inline-size: 100%;
             display: block;
         }
     }
