@@ -73,6 +73,9 @@ const verifyGuess = async (coordinates, objectId) => {
                 objectId
             })
         })
+        if (res.status == 401) {
+            throw new Error('Time limit exceeded')
+        }
         const data = await res.json()
         let {updatedObjects, ...rest} = data
         updatedObjects = updatedObjects.map(({objectId, ...restData}) => ({
@@ -81,7 +84,7 @@ const verifyGuess = async (coordinates, objectId) => {
         }))
         return {updatedObjects, ...rest}
     } catch (e) {
-        console.error(e.message)
+        return {message: e.message}
     }
 }
 

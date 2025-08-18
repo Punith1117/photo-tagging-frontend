@@ -49,6 +49,11 @@ const GameBoard = ({initialObjects, notify, gameEndedMessage, setGameEndedMessag
     useEffect(() => {
         const apiQuery = async () => {
             let result = await verifyGuess(coordinates, foundObjectId)
+            if (result.message) {
+                setGameEndedMessage('Time limit exceeded')
+                notify('Time limit exceeded')
+                return
+            }
             if (result.found) {
                 notify('Congrats! You found the object')
                 if (allObjectsFound(result.updatedObjects)) {
