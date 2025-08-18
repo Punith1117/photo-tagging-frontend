@@ -7,9 +7,10 @@ import { allObjectsFound } from "../utilities"
 
 const StyledGameBoard = styled.div`
     position: relative;
-    min-width: 60rem;
-    width: 95vw;
+    min-width: 50rem;
+    width: 75vw;
     height: auto;
+    margin: 2vw;
 `
 
 const StyledImage = styled.div`
@@ -17,7 +18,7 @@ const StyledImage = styled.div`
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    aspect-ratio: 2000 / 1142;
+    aspect-ratio: 1 / 1;
 
     &:hover {
         cursor: pointer;
