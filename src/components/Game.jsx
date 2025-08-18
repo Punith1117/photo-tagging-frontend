@@ -15,6 +15,23 @@ const StyledGame = styled.div`
     justify-content: center;
     align-items: center;
     width: 99vw;
+
+    .home-link {
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 3rem;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 1rem;
+        font-weight: 800;
+        box-shadow: 5px 5px 4px blue;
+        z-index: 1000;
+        
+        &:hover {
+            filter: brightness(0.7);
+        }
+    }
 `
 
 const Game = () => {
@@ -62,7 +79,7 @@ const Game = () => {
 
     return (
         <StyledGame>
-            <Link to={'/'}>Home</Link>
+            <Link to={'/'} className="home-link" >Home</Link>
             <Notifications messages={messages} />
             <ObjectsToFind objects={initialObjects} />
             <Timer key={refresh} gameStarted={gameStarted} gameEndedMessage={gameEndedMessage} setGameEndedMessage={setGameEndedMessage} notify={notify} />
