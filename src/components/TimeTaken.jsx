@@ -1,7 +1,26 @@
 import { use, useEffect, useState } from "react"
 import Loading from "./Loading"
 import { getTimeTakenByPlayer } from "../apiQueries"
+import styled from "styled-components"
 
+const StyledTimeTaken = styled.div`
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    background-color: #7a5002;
+    padding: 10px;
+    border-radius: 5px;
+
+    h2, p {
+        margin: 0;
+        padding: 0;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+`
 const TimeTaken = ({ userCreated }) => {
     const [isLoading, setIsLoading] = useState(true)
     const [timeTaken, setTimeTaken] = useState(null)
@@ -17,7 +36,7 @@ const TimeTaken = ({ userCreated }) => {
     }, [userCreated])
 
     return (
-        <div>
+        <StyledTimeTaken>
             <h2>Time Taken by you:</h2>
             { (isLoading == true) ? 
                 <Loading /> : 
@@ -25,7 +44,7 @@ const TimeTaken = ({ userCreated }) => {
                         <p>- seconds</p> : 
                             <p>{timeTaken} seconds</p>
             } 
-        </div>
+        </StyledTimeTaken>
     )
 }
 

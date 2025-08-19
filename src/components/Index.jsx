@@ -7,7 +7,21 @@ import GameSummary from './GameSummary'
 import TimeTaken from './TimeTaken'
 import Leaderboard from './Leaderboard'
 import StartGame from "./StartGame"
+import styled from "styled-components"
 
+
+const StyledIndex = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 5rem;
+
+    * {
+        box-sizing: border-box;
+    }
+`
 const Index = () => {
     const [userCreated, setUserCreated] = useState(false)
 
@@ -24,14 +38,14 @@ const Index = () => {
     }, [])
 
     return (
-        <div>
+        <StyledIndex>
             <GameTitleWithAuthor />
             <GameSummary />
             <Leaderboard />
             <PlayerName userCreated={userCreated}/>
             <StartGame userCreated={userCreated}/>
             <TimeTaken userCreated={userCreated}/>
-        </div>
+        </StyledIndex>
     )
 }
 
