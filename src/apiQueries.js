@@ -1,6 +1,6 @@
 import { getGameTokenFromStorage, getPlayerTokenFromStorage } from "./utilities"
 
-const DOMAIN = 'http://localhost:3000'
+const DOMAIN = 'https://photo-tagging-1etn.onrender.com'
 
 const getLeaderboard = async () => {
     try {
