@@ -1,6 +1,13 @@
+import styled from "styled-components"
+
+const StyledGameSummary = styled.div`
+    font-family: cursive;
+    font-size: 2rem;
+`
+
 const GameSummary = () => {
     return (
-        <p>Find and tag hidden parts of the image within the time limit</p>
+        <StyledGameSummary>Find and tag hidden parts of the image <br />within the time limit</StyledGameSummary>
     )
 }
 
