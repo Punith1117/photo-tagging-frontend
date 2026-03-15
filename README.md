@@ -133,9 +133,8 @@ Frontend (React) ←→ Backend API (Node.js/Express) ←→ Database (PostgreSQ
 - Value of comprehensive testing strategy
 - Benefits of frontend-first development methodology
 
-## 🚀 Deployment & DevOps
+## 🚀 Deployment
 
-### Deployment
 - **Netlify** for continuous deployment
 - Automated build process with Vite
 
